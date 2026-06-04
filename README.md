@@ -31,8 +31,7 @@ OmniTask elevates the standard to-do app by prioritizing a beautiful design syst
 
 All your data—including tasks, visual theme preferences, and active filters—is automatically saved to your browser's **Local Storage**, meaning your progress is never lost, even if you refresh or close the page.
 
-*(Add a screenshot of your application here by replacing the link below)*
-> `![OmniTask UI Placeholder](https://via.placeholder.com/800x450/1a1a2e/ffffff?text=App+Screenshot+Here)`
+![OmniTask UI](screenshot.png)
 
 ---
 
@@ -72,7 +71,7 @@ OmniTask requires **no backend server**, database, or exact build integrations t
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/omnitask.git
+   git clone https://github.com/VadsolaKishan/To-Do-List-Web-App.git
    ```
 2. **Navigate to the Directory:**
    ```bash
@@ -116,10 +115,16 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📫 Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
+**Kishan Vadsola**
 
-Project Link: [https://github.com/your-username/omnitask](https://github.com/your-username/omnitask)
+- 📧 Email: [vadsolakishan1310@gmail.com](mailto:vadsolakishan1310@gmail.com)
+- 🐙 GitHub: [@VadsolaKishan](https://github.com/VadsolaKishan)
+- 💼 LinkedIn: [Kishan Vadsola](https://www.linkedin.com/in/kishan-vadsola/) *(update with your exact LinkedIn URL if different)*
+
+**Project Link:** [https://github.com/VadsolaKishan/To-Do-List-Web-App](https://github.com/VadsolaKishan/To-Do-List-Web-App)
+
+<br />
 
 <div align="center">
-  Made with ❤️ using HTML, CSS, and Vanilla JS.
+  Made with ❤️ by Kishan Vadsola
 </div>
