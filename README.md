@@ -33,6 +33,8 @@ All your data—including tasks, visual theme preferences, and active filters—
 
 **🌟 Live Demo:** [https://vadsolakishan.github.io/Login-Page-UI/](https://vadsolakishan.github.io/Login-Page-UI/)
 
+[![OmniTask UI](screenshot.png)](https://vadsolakishan.github.io/Login-Page-UI/)
+
 ---
 
 ## ✨ Key Features
@@ -119,7 +121,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - 📧 Email: [vadsolakishan1310@gmail.com](mailto:vadsolakishan1310@gmail.com)
 - 🐙 GitHub: [@VadsolaKishan](https://github.com/VadsolaKishan)
-- 💼 LinkedIn: [Kishan Vadsola](https://www.linkedin.com/in/kishan-vadsola/) *(update with your exact LinkedIn URL if different)*
+- 💼 LinkedIn: [Kishan Vadsola](https://www.linkedin.com/in/kishan-vadsola-a68b05331)
 
 **Project Link:** [https://github.com/VadsolaKishan/To-Do-List-Web-App](https://github.com/VadsolaKishan/To-Do-List-Web-App)
 
