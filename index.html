@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OmniTask - A premium glassmorphic To-Do list application with real-time statistics, search, filtering, notifications, and light/dark themes.">
+  <title>OmniTask | Premium Task Management</title>
+  
+  <!-- Google Fonts - Poppins & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Premium Preloader -->
+  <div id="loader" class="page-loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-logo">Omni<span>Task</span></div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Background Animated Decorative Orbs -->
+  <div class="bg-glow-orb orb-1"></div>
+  <div class="bg-glow-orb orb-2"></div>
+  <div class="bg-glow-orb orb-3"></div>
+
+  <!-- Main Application Container -->
+  <main class="app-container" id="appContainer">
+    
+    <!-- Header Section -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">
+          <i class="fa-solid fa-infinity"></i>
+        </div>
+        <h1 class="logo-text">Omni<span>Task</span></h1>
+      </div>
+      
+      <!-- Premium Theme Toggle Switch -->
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle visual theme">
+        <span class="toggle-track">
+          <span class="toggle-thumb">
+            <i class="fa-solid fa-sun icon-sun"></i>
+            <i class="fa-solid fa-moon icon-moon"></i>
+          </span>
+        </span>
+      </button>
+    </header>
+
+    <!-- Stats Dashboard Grid -->
+    <section class="stats-dashboard" aria-label="Task statistics dashboard">
+      
+      <!-- Total Tasks Card -->
+      <div class="stat-card glass-panel" id="statCardTotal">
+        <div class="stat-icon-wrapper total-icon">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">Total Tasks</span>
+          <span class="stat-value" id="statsTotal">0</span>
+        </div>
+      </div>
+
+      <!-- Pending Tasks Card -->
+      <div class="stat-card glass-panel" id="statCardPending">
+        <div class="stat-icon-wrapper pending-icon">
+          <i class="fa-solid fa-clock"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">Pending</span>
+          <span class="stat-value" id="statsPending">0</span>
+        </div>
+      </div>
+
+      <!-- Completed Tasks Card -->
+      <div class="stat-card glass-panel" id="statCardCompleted">
+        <div class="stat-icon-wrapper completed-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">Completed</span>
+          <span class="stat-value" id="statsCompleted">0</span>
+        </div>
+      </div>
+
+      <!-- Circular SVG Progress Ring Card -->
+      <div class="stat-card glass-panel progress-card" id="statCardProgress">
+        <div class="progress-ring-container">
+          <svg class="progress-ring" width="64" height="64">
+            <circle class="progress-ring-circle-bg" stroke="rgba(255, 255, 255, 0.15)" stroke-width="5" fill="transparent" r="26" cx="32" cy="32"/>
+            <circle class="progress-ring-circle" id="progressCircle" stroke="url(#progressGradient)" stroke-width="5" stroke-linecap="round" fill="transparent" r="26" cx="32" cy="32"/>
+            <!-- Gradients for SVG border -->
+            <defs>
+              <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--accent-gradient-start)" />
+                <stop offset="100%" stop-color="var(--accent-gradient-end)" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="progress-percent" id="statsPercentage">0%</span>
+        </div>
+        <div class="stat-info">
+          <span class="stat-label">Progress</span>
+          <span class="stat-desc" id="progressPhrase">Awaiting tasks</span>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Task Input Section -->
+    <section class="task-input-section glass-panel" aria-label="Add new task">
+      <form id="taskForm" class="task-form" onsubmit="event.preventDefault();">
+        <div class="input-wrapper">
+          <i class="fa-regular fa-pen-to-square input-icon"></i>
+          <input type="text" id="taskInput" placeholder="What is your next focus?..." autocomplete="off" aria-label="New task input">
+          <span class="input-char-counter" id="charCounter">0/100</span>
+        </div>
+        <button type="submit" id="addTaskBtn" class="add-task-btn" aria-label="Add Task">
+          <span class="btn-text">Add Task</span>
+          <i class="fa-solid fa-plus btn-icon"></i>
+        </button>
+      </form>
+    </section>
+
+    <!-- Filter & Search Controls Section -->
+    <section class="controls-section glass-panel" aria-label="Search and Filter task tools">
+      
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search tasks..." aria-label="Search tasks in real-time">
+        <button id="clearSearchBtn" class="clear-search-btn" aria-label="Clear Search" style="display: none;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Segmented Sliding Filter Toggle -->
+      <div class="filter-wrapper">
+        <div class="filter-segmented-control">
+          <div class="filter-slider" id="filterSlider"></div>
+          <button type="button" class="filter-btn active" data-filter="all" id="filterBtnAll">All</button>
+          <button type="button" class="filter-btn" data-filter="active" id="filterBtnActive">Active</button>
+          <button type="button" class="filter-btn" data-filter="completed" id="filterBtnCompleted">Completed</button>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Task List Container Area -->
+    <section class="task-list-section glass-panel" aria-label="Task list scrollable container">
+      
+      <!-- Scrollable list wrapper -->
+      <div class="task-list-viewport">
+        <ul id="taskList" class="task-list">
+          <!-- Dynamic Task Cards will be loaded here via app.js -->
+        </ul>
+
+        <!-- Premium SVG Empty State Container -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-illustration-wrapper">
+            <svg class="empty-svg" viewBox="0 0 200 200" width="160" height="160">
+              <defs>
+                <linearGradient id="orbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="var(--accent-gradient-start)" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="var(--accent-gradient-end)" stop-opacity="0.05"/>
+                </linearGradient>
+                <linearGradient id="clipboardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="var(--glass-bg)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+                </linearGradient>
+                <linearGradient id="accentLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--accent-gradient-start)"/>
+                  <stop offset="100%" stop-color="var(--accent-gradient-end)"/>
+                </linearGradient>
+              </defs>
+              <!-- Decorative background glowing orb -->
+              <circle cx="100" cy="95" r="55" fill="url(#orbGrad)" class="svg-floating-orb" />
+              
+              <!-- Clipboard Shadow -->
+              <rect x="74" y="54" width="52" height="72" rx="10" fill="rgba(0,0,0,0.08)" filter="blur(3px)" />
+              <!-- Clipboard Main Plate -->
+              <rect x="72" y="50" width="56" height="72" rx="10" fill="url(#clipboardGrad)" stroke="var(--border-color)" stroke-width="1.5" class="svg-clipboard" />
+              <!-- Clipboard Header Clip -->
+              <path d="M90 44h20a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H90a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3z" fill="var(--stat-icon-total-bg)" stroke="var(--border-color)" stroke-width="1" />
+              <circle cx="100" cy="49" r="2" fill="var(--text-secondary)" />
+              
+              <!-- Simulated lines of tasks on clipboard -->
+              <!-- Line 1: checked checkbox and line -->
+              <rect x="82" y="66" width="8" height="8" rx="2" fill="var(--stats-completed)" opacity="0.8" />
+              <path d="M84 70l1 1 2-2" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              <line x1="95" y1="70" x2="118" y2="70" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+              
+              <!-- Line 2: unchecked checkbox and line -->
+              <rect x="82" y="80" width="8" height="8" rx="2" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" opacity="0.6" />
+              <line x1="95" y1="84" x2="118" y2="84" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.5" />
+              
+              <!-- Line 3: checked checkbox and line -->
+              <rect x="82" y="94" width="8" height="8" rx="2" fill="var(--stats-completed)" opacity="0.8" />
+              <path d="M84 98l1 1 2-2" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              <line x1="95" y1="98" x2="114" y2="98" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.3" />
+
+              <!-- Sparkles and stars indicating cleanliness/premium feel -->
+              <path d="M50 80l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="var(--accent-gradient-start)" opacity="0.7" class="svg-sparkle-1" />
+              <path d="M145 60l1.5 3 3 1.5-3 1.5-1.5 3-1.5-3-3-1.5 3-1.5z" fill="var(--accent-gradient-end)" opacity="0.8" class="svg-sparkle-2" />
+              <path d="M135 115l1.2 2.4 2.4 1.2-2.4 1.2-1.2 2.4-1.2-2.4-2.4-1.2 2.4-1.2z" fill="var(--accent-gradient-start)" opacity="0.5" class="svg-sparkle-3" />
+            </svg>
+          </div>
+          <h3 class="empty-title">All clear, you're set!</h3>
+          <p class="empty-subtitle">Your task workspace is ready. Plan a new focus and start creating.</p>
+          <button type="button" class="empty-cta-btn" id="emptyCtaBtn">
+            <i class="fa-solid fa-plus"></i> Add a Task
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="app-footer glass-panel">
+      <div class="footer-left">
+        <span class="footer-count" id="footerTaskCount">0 active items left</span>
+      </div>
+      <div class="footer-right">
+        <button type="button" class="clear-completed-btn" id="clearCompletedBtn">
+          <i class="fa-solid fa-broom"></i> Clear Completed
+        </button>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Real-time Glass Toast Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
