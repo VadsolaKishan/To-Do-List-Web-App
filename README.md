@@ -31,7 +31,7 @@ OmniTask elevates the standard to-do app by prioritizing a beautiful design syst
 
 All your data—including tasks, visual theme preferences, and active filters—is automatically saved to your browser's **Local Storage**, meaning your progress is never lost, even if you refresh or close the page.
 
-![OmniTask UI](screenshot.png)
+**🌟 Live Demo:** [https://vadsolakishan.github.io/Login-Page-UI/](https://vadsolakishan.github.io/Login-Page-UI/)
 
 ---
 
@@ -75,7 +75,7 @@ OmniTask requires **no backend server**, database, or exact build integrations t
    ```
 2. **Navigate to the Directory:**
    ```bash
-   cd omnitask
+   cd To-Do-List-Web-App
    ```
 3. **Launch the Application:**
    * Simply double-click on the `index.html` file to run it in your default web browser.
@@ -86,7 +86,7 @@ OmniTask requires **no backend server**, database, or exact build integrations t
 ## 📁 Folder Structure
 
 ```text
-📦 omnitask
+📦 To-Do-List-Web-App
  ┣ 📜 index.html    # Main HTML markup and application skeleton
  ┣ 📜 style.css     # Core stylesheet, theme variables, and UI animations
  ┣ 📜 app.js        # Business logic, state management, and DOM interactions
