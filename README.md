@@ -31,9 +31,9 @@ OmniTask elevates the standard to-do app by prioritizing a beautiful design syst
 
 All your data—including tasks, visual theme preferences, and active filters—is automatically saved to your browser's **Local Storage**, meaning your progress is never lost, even if you refresh or close the page.
 
-**🌟 Live Demo:** [https://vadsolakishan.github.io/Login-Page-UI/](https://vadsolakishan.github.io/Login-Page-UI/)
+**🌟 Live Demo:** [https://vadsolakishan.github.io/To-Do-List-Web-App/](https://vadsolakishan.github.io/To-Do-List-Web-App/)
 
-[![OmniTask UI](screenshot.png)](https://vadsolakishan.github.io/Login-Page-UI/)
+[![OmniTask UI](screenshot.png)](https://vadsolakishan.github.io/To-Do-List-Web-App/)
 
 ---
 
